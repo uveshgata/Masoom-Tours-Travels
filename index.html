@@ -1,404 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Masoom Tours - Modern Homepage Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masoom Tours & Travels</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+:root{
+  --maroon:#a12a24;
+  --maroon-dark:#721915;
+  --black:#111;
+  --white:#fff;
+  --soft:#f8f5f2;
+  --gray:#666;
+}
 
-    body {
-      background: #f7f8fa;
-      color: #1f2937;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
 
-    header {
-      background: linear-gradient(135deg, #064e3b, #022c22);
-      color: white;
-      padding: 14px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+body{
+  background:var(--white);
+  color:var(--black);
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #facc15;
-    }
+.topbar{
+  background:#1f1f1f;
+  color:#fff;
+  padding:10px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 15px;
-    }
+.navbar{
+  background:#fff;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
 
-    .hero {
-      min-height: 85vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)),
-        url("https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 0 8%;
-    }
+.logo img{
+  height:70px;
+  width:auto;
+  object-fit:contain;
+}
 
-    .hero-content {
-      max-width: 650px;
-      animation: fadeUp 1.2s ease;
-    }
+.nav-links a{
+  text-decoration:none;
+  color:#222;
+  margin-left:25px;
+  font-weight:600;
+  position:relative;
+}
 
-    .hero h1 {
-      font-size: 48px;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  width:0;
+  height:2px;
+  background:var(--maroon);
+  left:0;
+  bottom:-6px;
+  transition:.3s;
+}
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 28px;
-      color: #e5e7eb;
-    }
+.nav-links a:hover::after{
+  width:100%;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 13px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 12px;
-      transition: 0.3s;
-    }
+.haj-btn{
+  background:var(--maroon);
+  color:white!important;
+  padding:11px 18px;
+  border-radius:4px;
+}
 
-    .btn-gold {
-      background: #facc15;
-      color: #111827;
-    }
+.hero{
+  min-height:82vh;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.2)),
+  url("https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  padding:0 7%;
+  color:white;
+}
 
-    .btn-outline {
-      border: 2px solid white;
-      color: white;
-    }
+.hero-content{
+  max-width:720px;
+  animation:fadeUp 1.2s ease;
+}
 
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
+.hero-content small{
+  background:rgba(161,42,36,.9);
+  padding:10px 18px;
+  border-radius:30px;
+  display:inline-block;
+  margin-bottom:20px;
+}
 
-    section {
-      padding: 70px 8%;
-    }
+.hero h2{
+  font-size:56px;
+  line-height:1.15;
+  margin-bottom:20px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:30px;
+  color:#eee;
+}
 
-    .section-title h2 {
-      font-size: 34px;
-      color: #064e3b;
-      margin-bottom: 10px;
-    }
+.btn{
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+  margin-right:10px;
+}
 
-    .section-title p {
-      color: #6b7280;
-    }
+.btn-main{
+  background:var(--maroon);
+  color:white;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
+.btn-outline{
+  border:2px solid white;
+  color:white;
+}
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: 0.3s;
-      animation: fadeUp 1s ease;
-    }
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px rgba(0,0,0,.25);
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
+section{
+  padding:75px 7%;
+}
 
-    .card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-    }
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
 
-    .card-body {
-      padding: 22px;
-    }
+.title h2{
+  font-size:36px;
+  margin-bottom:8px;
+}
 
-    .card-body h3 {
-      color: #064e3b;
-      margin-bottom: 10px;
-    }
+.title p{
+  color:var(--gray);
+}
 
-    .price {
-      color: #b45309;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 12px 0;
-    }
+.tour-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:28px;
+}
 
-    .small-btn {
-      display: inline-block;
-      background: #064e3b;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 25px;
-      text-decoration: none;
-      margin-top: 10px;
-    }
+.tour-card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 14px 40px rgba(0,0,0,.1);
+  border:1px solid #eee;
+  transition:.35s;
+}
 
-    .why {
-      background: #ecfdf5;
-    }
+.tour-card:hover{
+  transform:translateY(-10px);
+}
 
-    .why-box {
-      text-align: center;
-      padding: 28px;
-      border-radius: 18px;
-      background: white;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
+.tour-img{
+  height:210px;
+  overflow:hidden;
+}
 
-    .why-box span {
-      font-size: 38px;
-      display: block;
-      margin-bottom: 12px;
-    }
+.tour-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
 
-    .cta {
-      background: linear-gradient(135deg, #064e3b, #111827);
-      color: white;
-      text-align: center;
-      border-radius: 0;
-    }
+.tour-card:hover img{
+  transform:scale(1.08);
+}
 
-    .cta h2 {
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
+.tour-body{
+  padding:25px;
+}
 
-    footer {
-      background: #022c22;
-      color: white;
-      padding: 35px 8%;
-      text-align: center;
-    }
+.tour-body h3{
+  color:var(--maroon);
+  margin-bottom:12px;
+}
 
-    footer p {
-      color: #d1d5db;
-      margin-top: 8px;
-    }
+.price{
+  font-size:24px;
+  font-weight:bold;
+  margin:15px 0;
+}
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(35px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.meta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
-      }
+.meta span{
+  background:#f4e8e6;
+  color:var(--maroon);
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:13px;
+}
 
-      nav a {
-        margin: 0 8px;
-        font-size: 14px;
-      }
+.why{
+  background:var(--soft);
+}
 
-      .hero h1 {
-        font-size: 34px;
-      }
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
 
-      .hero {
-        min-height: 75vh;
-        text-align: center;
-      }
+.why-box{
+  background:white;
+  padding:32px 22px;
+  text-align:center;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  transition:.3s;
+}
 
-      .btn {
-        margin-bottom: 12px;
-      }
-    }
-  </style>
+.why-box:hover{
+  transform:translateY(-8px);
+}
+
+.why-box div{
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+.cta{
+  background:linear-gradient(135deg,var(--maroon),var(--maroon-dark));
+  color:white;
+  text-align:center;
+}
+
+.cta h2{
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+.footer{
+  background:#1b1b1b;
+  color:white;
+  padding:65px 7% 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:35px;
+}
+
+.footer h3{
+  margin-bottom:18px;
+  font-size:17px;
+  letter-spacing:1px;
+}
+
+.footer p,
+.footer li{
+  color:#bbb;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.footer ul{
+  list-style:none;
+}
+
+.footer a{
+  color:#bbb;
+  text-decoration:none;
+}
+
+.news-box{
+  border-left:4px solid #fff;
+  padding-left:15px;
+}
+
+.socials span{
+  display:inline-flex;
+  width:36px;
+  height:36px;
+  background:#fff;
+  color:#111;
+  align-items:center;
+  justify-content:center;
+  margin-right:6px;
+  border-radius:4px;
+}
+
+.member-box{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.member-box div{
+  background:white;
+  color:#111;
+  padding:14px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.copyright{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:15px;
+  font-size:13px;
+}
+
+.copyright span{
+  color:var(--maroon);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(35px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@media(max-width:768px){
+  .topbar{
+    flex-direction:column;
+    gap:8px;
+    text-align:center;
+  }
+
+  .navbar{
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .logo img{
+    height:62px;
+  }
+
+  .nav-links{
+    text-align:center;
+  }
+
+  .nav-links a{
+    display:inline-block;
+    margin:8px;
+  }
+
+  .hero{
+    text-align:center;
+    min-height:75vh;
+  }
+
+  .hero h2{
+    font-size:36px;
+  }
+
+  section{
+    padding:60px 5%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Masoom Tours</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Tours</a>
-      <a href="#">Hotels</a>
-      <a href="#">Inquiry</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+<div class="topbar">
+  <div>✔ Welcome to Masoom Tours & Travels</div>
+  <div>☎ +91-9824108692 &nbsp; | &nbsp; ✉ info@masoomtours.com</div>
+</div>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Trusted Haj & Umrah Tours From Bharuch</h1>
-      <p>
-        Experience a peaceful and well-planned spiritual journey with reliable guidance,
-        hotel support, visa assistance, and complete travel care.
-      </p>
-      <a href="#" class="btn btn-gold">View Packages</a>
-      <a href="#" class="btn btn-outline">WhatsApp Inquiry</a>
-    </div>
-  </section>
+<header class="navbar">
+  <div class="logo">
+    <img src="masoom-logo.png" alt="Masoom Tours & Travels Logo">
+  </div>
 
-  <section>
-    <div class="section-title">
-      <h2>Latest Tour Packages</h2>
-      <p>Choose the best package for your next spiritual journey</p>
-    </div>
+  <nav class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Hotels</a>
+    <a href="#">Inquiry</a>
+    <a href="#">Contact</a>
+    <a href="#" class="haj-btn">Haj & Umrah ☰</a>
+  </nav>
+</header>
 
-    <div class="cards">
-      <div class="card">
+<section class="hero">
+  <div class="hero-content">
+    <small>Premium Haj & Umrah Travel Service</small>
+    <h2>Begin Your Blessed Journey With Masoom Tours</h2>
+    <p>
+      Trusted Haj, Umrah and travel services from Bharuch with hotel support,
+      visa guidance, group assistance and personal care throughout your journey.
+    </p>
+    <a href="#" class="btn btn-main">View Packages</a>
+    <a href="#" class="btn btn-outline">Send Inquiry</a>
+  </div>
+</section>
+
+<section>
+  <div class="title reveal">
+    <h2>Latest Tours Offer</h2>
+    <p>Carefully selected packages for your spiritual journey</p>
+  </div>
+
+  <div class="tour-grid">
+    <div class="tour-card reveal">
+      <div class="tour-img">
         <img src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=900&q=80">
-        <div class="card-body">
-          <h3>Vacation Umrah Package</h3>
-          <p>Comfortable stay, guided ziyarat, visa support and group travel service.</p>
-          <div class="price">From ₹75,000</div>
-          <a href="#" class="small-btn">View Details</a>
-        </div>
       </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=900&q=80">
-        <div class="card-body">
-          <h3>Ramadan Umrah</h3>
-          <p>Special Ramadan package with hotel, transport, food and spiritual guidance.</p>
-          <div class="price">From ₹95,000</div>
-          <a href="#" class="small-btn">View Details</a>
+      <div class="tour-body">
+        <h3>Vacation Umrah</h3>
+        <p>Comfortable Umrah package with travel assistance, hotel support and group guidance.</p>
+        <div class="price">Rs. 95,000/-*</div>
+        <div class="meta">
+          <span>15 Days</span>
+          <span>Date: 17 October</span>
+          <span>February</span>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1579305796288-c534f6cf17ab?auto=format&fit=crop&w=900&q=80">
-        <div class="card-body">
-          <h3>Haj 2026 Package</h3>
-          <p>Premium Haj service with complete support from documentation to journey.</p>
-          <div class="price">Contact Us</div>
-          <a href="#" class="small-btn">Inquire Now</a>
-        </div>
+        <a href="#" class="btn btn-main">View Details</a>
+        <a href="#" class="btn btn-outline" style="color:#111;border-color:#111;">Inquire Now</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="why">
-    <div class="section-title">
-      <h2>Why Choose Masoom Tours?</h2>
-      <p>Reliable service for Haj, Umrah and international travel</p>
+<section class="why">
+  <div class="title reveal">
+    <h2>Why Travel With Masoom?</h2>
+    <p>Modern service, trusted guidance and smooth travel planning</p>
+  </div>
+
+  <div class="why-grid">
+  <div class="why-box reveal">
+    <div>🕌</div>
+    <h3>Follow Shariah Rules</h3>
+    <p>Journey planned with care according to Islamic values.</p>
+  </div>
+
+  <div class="why-box reveal">
+    <div>📄</div>
+    <h3>Visa Process Handling</h3>
+    <p>Complete support for visa documentation and process.</p>
+  </div>
+
+  <div class="why-box reveal">
+    <div>👳‍♂️</div>
+    <h3>Guidance by Ulma</h3>
+    <p>Personal religious guidance throughout the journey.</p>
+  </div>
+
+  <div class="why-box reveal">
+    <div>🤝</div>
+    <h3>Supportive Staff</h3>
+    <p>Helpful staff support at every important visit.</p>
+  </div>
+
+  <div class="why-box reveal">
+    <div>🕋</div>
+    <h3>Stay Near Haram & Madina</h3>
+    <p>Comfortable stay near Haram Sharif and Madina.</p>
+  </div>
+
+  <div class="why-box reveal">
+    <div>🍽️</div>
+    <h3>Bharuchi Taste</h3>
+    <p>Local delicious Bharuchi food taste during the journey.</p>
+  </div>
+</div>
+</section>
+
+<section class="cta">
+  <h2 class="reveal">Plan Your Umrah Journey Today</h2>
+  <p class="reveal">Contact Masoom Tours & Travels for package details and booking guidance.</p>
+  <br>
+  <a href="#" class="btn btn-outline reveal">Call Now</a>
+  <a href="#" class="btn btn-main reveal">WhatsApp Message</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div>
+      <h3>NAVIGATION</h3>
+      <ul>
+        <li><a href="#">• Home</a></li>
+        <li><a href="#">• Contact</a></li>
+        <li><a href="#">• Inquiry</a></li>
+      </ul>
     </div>
 
-    <div class="cards">
-      <div class="why-box">
-        <span>🕋</span>
-        <h3>Haj & Umrah Experts</h3>
-        <p>Experienced team for spiritual travel planning.</p>
-      </div>
-
-      <div class="why-box">
-        <span>🏨</span>
-        <h3>Hotel Support</h3>
-        <p>Comfortable hotel options near important locations.</p>
-      </div>
-
-      <div class="why-box">
-        <span>📄</span>
-        <h3>Visa Guidance</h3>
-        <p>Step-by-step help for documentation and process.</p>
-      </div>
-
-      <div class="why-box">
-        <span>☎️</span>
-        <h3>Personal Assistance</h3>
-        <p>Friendly support before and during your journey.</p>
+    <div>
+      <h3>NEWS</h3>
+      <div class="news-box">
+        <p>Umrah Training Camp Click Here...</p>
+        <p>હજ - ઉમરાહ ટ્રેનિંગ માટે જોડાઓ</p>
       </div>
     </div>
-  </section>
 
-  <section>
-    <div class="section-title">
-      <h2>Featured Hotels</h2>
-      <p>Comfortable stay options for Makkah and Madinah</p>
+    <div>
+      <h3>CONTACT US</h3>
+      <p><b>Address:</b> 4, Mariyam Complex, Nr New Veg. Market, Bharuch, Gujarat - 392001 India.</p>
+      <p><b>Phone:</b> +91-9824108692</p>
+      <p><b>Email:</b> info@masoomtours.com</p>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80">
-        <div class="card-body">
-          <h3>Makkah Hotel</h3>
-          <p>Clean rooms, group-friendly stay, near Haram area.</p>
-          <a href="#" class="small-btn">View Hotel</a>
-        </div>
+    <div>
+      <h3>SOCIAL MEDIA</h3>
+      <p>Send WhatsApp Message</p>
+      <div class="socials">
+        <span>☎</span>
+        <span>f</span>
+        <span>t</span>
+        <span>◎</span>
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80">
-        <div class="card-body">
-          <h3>Madinah Hotel</h3>
-          <p>Comfortable stay with easy access and travel support.</p>
-          <a href="#" class="small-btn">View Hotel</a>
-        </div>
+      <br><br>
+
+      <h3>MEMBER OF</h3>
+      <div class="member-box">
+        <div>IATA</div>
+        <div>Accredited Agent</div>
+        <div>AIHUTOA</div>
       </div>
     </div>
-  </section>
 
-  <section class="cta">
-    <h2>Ready For Your Umrah Journey?</h2>
-    <p>Contact Masoom Tours today and get the best package details.</p>
-    <br>
-    <a href="#" class="btn btn-gold">Call Now</a>
-    <a href="#" class="btn btn-outline">WhatsApp Us</a>
-  </section>
+  </div>
+</footer>
 
-  <footer>
-    <h3>Masoom Tours & Travels</h3>
-    <p>Bharuch, Gujarat, India</p>
-    <p>© 2026 Masoom Tours. Demo UI design.</p>
-  </footer>
+<div class="copyright">
+  This is the demo webpage created by <span>MOHAMMADUVESH</span>
+</div>
 
-  <script>
-    const cards = document.querySelectorAll(".card, .why-box");
+<script>
+const reveals = document.querySelectorAll(".reveal");
 
-    window.addEventListener("scroll", () => {
-      cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        if (cardTop < window.innerHeight - 80) {
-          card.style.opacity = "1";
-          card.style.transform = "translateY(0)";
-        }
-      });
-    });
-  </script>
+function revealOnScroll(){
+  reveals.forEach(item=>{
+    const itemTop = item.getBoundingClientRect().top;
+    if(itemTop < window.innerHeight - 80){
+      item.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+</script>
 
 </body>
-  </html>
+          </html>
