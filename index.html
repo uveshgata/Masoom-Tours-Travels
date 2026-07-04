@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masoom Tours - Modern Homepage Demo</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f8fa;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #064e3b, #022c22);
+      color: white;
+      padding: 14px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #facc15;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)),
+        url("https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 8%;
+    }
+
+    .hero-content {
+      max-width: 650px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 28px;
+      color: #e5e7eb;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 12px;
+      transition: 0.3s;
+    }
+
+    .btn-gold {
+      background: #facc15;
+      color: #111827;
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      color: #064e3b;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      animation: fadeUp 1s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .card-body h3 {
+      color: #064e3b;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #b45309;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .small-btn {
+      display: inline-block;
+      background: #064e3b;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .why {
+      background: #ecfdf5;
+    }
+
+    .why-box {
+      text-align: center;
+      padding: 28px;
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .why-box span {
+      font-size: 38px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #064e3b, #111827);
+      color: white;
+      text-align: center;
+      border-radius: 0;
+    }
+
+    .cta h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #022c22;
+      color: white;
+      padding: 35px 8%;
+      text-align: center;
+    }
+
+    footer p {
+      color: #d1d5db;
+      margin-top: 8px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero {
+        min-height: 75vh;
+        text-align: center;
+      }
+
+      .btn {
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Masoom Tours</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Tours</a>
+      <a href="#">Hotels</a>
+      <a href="#">Inquiry</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Trusted Haj & Umrah Tours From Bharuch</h1>
+      <p>
+        Experience a peaceful and well-planned spiritual journey with reliable guidance,
+        hotel support, visa assistance, and complete travel care.
+      </p>
+      <a href="#" class="btn btn-gold">View Packages</a>
+      <a href="#" class="btn btn-outline">WhatsApp Inquiry</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Latest Tour Packages</h2>
+      <p>Choose the best package for your next spiritual journey</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=900&q=80">
+        <div class="card-body">
+          <h3>Vacation Umrah Package</h3>
+          <p>Comfortable stay, guided ziyarat, visa support and group travel service.</p>
+          <div class="price">From ₹75,000</div>
+          <a href="#" class="small-btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=900&q=80">
+        <div class="card-body">
+          <h3>Ramadan Umrah</h3>
+          <p>Special Ramadan package with hotel, transport, food and spiritual guidance.</p>
+          <div class="price">From ₹95,000</div>
+          <a href="#" class="small-btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1579305796288-c534f6cf17ab?auto=format&fit=crop&w=900&q=80">
+        <div class="card-body">
+          <h3>Haj 2026 Package</h3>
+          <p>Premium Haj service with complete support from documentation to journey.</p>
+          <div class="price">Contact Us</div>
+          <a href="#" class="small-btn">Inquire Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="section-title">
+      <h2>Why Choose Masoom Tours?</h2>
+      <p>Reliable service for Haj, Umrah and international travel</p>
+    </div>
+
+    <div class="cards">
+      <div class="why-box">
+        <span>🕋</span>
+        <h3>Haj & Umrah Experts</h3>
+        <p>Experienced team for spiritual travel planning.</p>
+      </div>
+
+      <div class="why-box">
+        <span>🏨</span>
+        <h3>Hotel Support</h3>
+        <p>Comfortable hotel options near important locations.</p>
+      </div>
+
+      <div class="why-box">
+        <span>📄</span>
+        <h3>Visa Guidance</h3>
+        <p>Step-by-step help for documentation and process.</p>
+      </div>
+
+      <div class="why-box">
+        <span>☎️</span>
+        <h3>Personal Assistance</h3>
+        <p>Friendly support before and during your journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Featured Hotels</h2>
+      <p>Comfortable stay options for Makkah and Madinah</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80">
+        <div class="card-body">
+          <h3>Makkah Hotel</h3>
+          <p>Clean rooms, group-friendly stay, near Haram area.</p>
+          <a href="#" class="small-btn">View Hotel</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80">
+        <div class="card-body">
+          <h3>Madinah Hotel</h3>
+          <p>Comfortable stay with easy access and travel support.</p>
+          <a href="#" class="small-btn">View Hotel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready For Your Umrah Journey?</h2>
+    <p>Contact Masoom Tours today and get the best package details.</p>
+    <br>
+    <a href="#" class="btn btn-gold">Call Now</a>
+    <a href="#" class="btn btn-outline">WhatsApp Us</a>
+  </section>
+
+  <footer>
+    <h3>Masoom Tours & Travels</h3>
+    <p>Bharuch, Gujarat, India</p>
+    <p>© 2026 Masoom Tours. Demo UI design.</p>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll(".card, .why-box");
+
+    window.addEventListener("scroll", () => {
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < window.innerHeight - 80) {
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+        }
+      });
+    });
+  </script>
+
+</body>
+  </html>
